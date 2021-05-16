@@ -12,10 +12,10 @@
     - 수빈: 알고리즘
     - 주영: 네트워크
     - 주희: 운영체제 
-6. File Name : `CH.챕터번호_작성자`
-    - CH.01_sb.md
-7. Commit Message : `[Add] ✍ 과목명_CH.챕터번호_챕터명`
-    - [Add] ✍ DB_CH.01_데이터베이스와_데이터베이스_사용자
+5. File Name : `CH.챕터번호`
+    - CH.01.md
+6. Commit Message : `[Add] ✍ 과목명_CH.챕터번호_챕터명`
+    - [Add] ✍ DB_CH.01_기본 알고리즘
 
 
 <br />
