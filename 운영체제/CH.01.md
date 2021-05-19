@@ -11,7 +11,7 @@
      - 다양한 사용자를 위해 여러 응용프로그램간의 하드웨어 사용을 제어하고 조정하는 역할 담당
      - 컴퓨터 시스템이 동작할 때 이들 자원을 적절하게 사용하는 방법을 제공
   4. 사용자
-    
+     
     <img src="./image/computer_system.PNG" alt="computer_system" width="400" style="max-width:100%"/>       
     
 운영체제의 역할을 사용자와 시스템 관점에서 살펴보자
