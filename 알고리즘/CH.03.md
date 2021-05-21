@@ -25,7 +25,7 @@
 ## 2. 선형 검색
 
 ### 선형 검색
-- 요소가 직선으로 늘어선 배열에서의 검색으로,
+- 요소가 직선으로 늘어선 배열에서의 검색
 - 원하는 키 값을 갖는 요소를 만날 때까지 맨 앞부터 `순서대로` 요소 검색
 - `순차 검색`이라고도 함
 
@@ -76,7 +76,7 @@ class SeqSearchSen {
         if (idx == -1)
             System.out.println("요소가 존재하지 않음")
         else
-            System.out.println("요소는 x["+dix"]에 존재함")
+            System.out.println("요소는 x[" + dix + "]에 존재함")
     }
 }
 ```
@@ -86,8 +86,62 @@ class SeqSearchSen {
 ## 3. 이진검색
 
 ### 이진 검색
+- 요소가 오름차순 또는 내림차순으로 `정렬된 배열에서 검색`하는 알고리즘
+- 검색 범위를 좁혀가는 방법
+  1. a[pc] < key일 때 <br/> a[pl]부터 a[pc]는 key보다 작으므로 검색 대상에서 제외하고 검색 범위를 `a[pc+1]부터 a[pr]`로 좁힘
+  2. a[pc] > key일 때 <br/> a[pc]부터 a[pr]은 key보다 크므로 검색 대상에서 제외하고 검색 범위를 `a[pl]부터 a[pc-1]`로 좁힙
+- 39를 검색한 예 <br/> ![binary searcy](./img/03.binary_search.png)
+- 종료 조건
+  1. a[pc]와 key가 일치하지 않는 경우
+  2. 검색 범위가 더 이상 없는 경우
+
+```java
+import java.util.Scanner;
+
+class BinSearch {
+    static int binSearch(int[] a, int n, int key) {
+        int pl = 0; // 검색 범위의 첫 인덱스
+        int pr = n - 1; // 검색 범위의 끝 인덱스
+
+        do {
+            int pc = (pl + pr) / 2; // 중앙 요소의 인덱스
+            if (a[pc] == key) return pc; // 검색 성공!
+            else if (a[pc] < key) pl = pc + 1; // 검색 범위를 뒤쪽 절반으로 좁힘
+            else pr = pc - 1; // 검색 범위를 앞쪽 절반으로 좁힘
+        } while (pl <= pr);
+
+        return -1; // 검색 실패
+    }
+
+    public static void main(String[] args) {
+        Scanner stdIn = new Scanner(System.in);
+        
+        int num = stdIn.nextInt(); // 요솟수
+        int[] x = new int[num]; // 요솟수가 num인 배열
+
+        x[0] = stdIn.nextInt(); // 첫 요소 입력
+
+        for (int i = 1; i < num; i++) {
+            do {
+                x[i] = stdIn.nextInt();
+            } while (x[i] < x[i-1]); // 바로 앞의 요소보다 작으면 다시 입력
+        }
+
+        int ky = stdIn.nextInt() // 키 값
+        int idx = binSearch(x, num, ky); // 배열 x에서 키 값이 ky인 요소 검색
+
+        if (idx == -1) System.out.println("요소 존재 X");
+        else System.out.println(ky + "은(는) x[" + idx + "]에 존재");
+    }
+}
+```
+
 ### 복잡도
-### Arrays.binarySearch에 의한 이진 
+- 복잡도 요소
+  1. 시간 복잡도 : 실행에 필요한 시간을 평가한 것
+  2. 공간 복잡도 : 기억 영역과 파일 공간이 얼마나 필요한가 평가한 것
+- 선형 검색의 시간 복잡도 : O(n)
+- 이진 검색의 시간 복잡도 : O(log n)
 
 ---
 ### 🎨 이미지 출처
