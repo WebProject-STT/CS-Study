@@ -15,7 +15,7 @@
 5. File Name : `CH.챕터번호`
     - CH.01.md
 6. Commit Message : `[Add] ✍ 과목명_CH.챕터번호_챕터명`
-    - [Add] ✍ DB_CH.01_기본 알고리즘
+    - [Add] ✍ 알고리즘_CH.01_기본 알고리즘
 
 
 <br />
