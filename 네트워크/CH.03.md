@@ -86,7 +86,7 @@
 ```HTTP 요청(Request)을 통해 클라이언트가 HTTP서버에게 특정 자원에 대한 접근이나 동작을 요구하게된다.```
 ```HTTP의 요청 메시지는 Request line, Header, Body로 구성되어 있다```
 
-1. Request line
+1. Request line <br>
 ![HTTP 요청 메시지1](./image/13.png)<br>
 ![HTTP 요청 메시지2](./image/14.png)<br>
 
@@ -128,7 +128,7 @@
 |**DELETE**|DELETE URI|서버는 클라이언트으로부터 요청된 자원을 삭제한다(보안 문제로 대부분 서버에서는 이 함수를 비활성화 한다)|
 |PUT|PUT URI ... <BR><u>Content-Length: 11</u><br><u>Content-Type: text/xml</u><BR><u>Body</u>|POST와 비슷하지만 기존에 있는 자원을 수정할때 사용한다. 내용 갱신을 위주로 하는 함수로 URI을 보내지 않아도 된다.|
 |HEAD|HEAD URI|GET방식과 동일하지만, 응답에 Body가 없고 응답 코드+HEAD만 응답한다 (웹 서버 정보 확인, 버전 확인, 수정 일자 확인 등 용도)|
-|PATCH]|PATCH URI ... <BR><u>Content-Length: 11</u><br><u>Content-Type: text/xml</u><BR><u>Body</u>|PUT과 유사하게 요청된 자원을 수정할 때 사용한다. PUT의 경우 자원 전체를 갱신하지만, PATCH는 해당 자웡늬 일부만 교체한다.|
+|PATCH|PATCH URI ... <BR><u>Content-Length: 11</u><br><u>Content-Type: text/xml</u><BR><u>Body</u>|PUT과 유사하게 요청된 자원을 수정할 때 사용한다. PUT의 경우 자원 전체를 갱신하지만, PATCH는 해당 자웡늬 일부만 교체한다.|
 |TRACE|TRACE URI|원격지 서버에 루프백 메시지를 호출하기 위해 테스트용으로 사용한다. 즉, TRACE 메소드는 웹 브라우저가 보내는 HTTP 통신을 반사하는 역할을 한다.|
 |OPTIONS|OPTIONS URI|웹 서버에서 지원되는 메소드의 종류를 확인할 경우 사용한다|
 |CONNECT|CONNECT URI|Client가 Proxy를 통해서 Server와 SSL통신을 하고자 할 때 사용된다.|
