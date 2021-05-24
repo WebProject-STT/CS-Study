@@ -230,28 +230,3 @@
 3. Body
 
         해당 요청의 실제 내용들이 담겨 있다. 즉, 가져올 실제 데이터 콘텐츠/메시지 본문이다. 요청한 리소스에 따라 HTML, 이미지, CSS 스타일 시트, JavaScript파일이 포함될 수 있다.
-
-#### **응답 메시지 구조**
-![HTTP 응답 메시지](./image/20.png)<br>
-![HTTP 응답 메시지](./image/21.png)<br>
-
-```HTTP 응답(Response)을 통해 서버는 클라이언트의 요청에 대한 응답을 전송한다.```
-```HTTP의 응답 메시지는 Status line, Header, Body로 구성되어 있다```
-
-1. Status line<br>
-    => HTTP version / Status Code / Status Text
-
-    | request line | include |
-    |---|:---:|
-    |Version|HTTP 버전 -> 주로 HTTP 1.1 버전이 주로 널리 사용됨|
-    |Status code|응답 상태를 나타내는 코드|
-    |Status Text|응답 상태를 간략하게 글로 설명해줌|
-
-<details>
-<summary> Status code 참고 </summary>
-
-![OPTIONS](./image/22.png)
-
-</details>
-
-2. Header<br>
