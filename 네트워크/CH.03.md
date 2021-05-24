@@ -103,7 +103,11 @@
     URI(Uniform Resource Identifier)은 식별자로, 인터넷에 있는 자료의 ID로 생각하면 된다. URI의 존재는 인터넷에서 요구되는 기본조건으로서 인터넷 프로토콜에 항상 붙어 다닌다. URI의 하위개념으로 URL, URN 이 있다.
 
     👏 URL이란?
-    URL(Uniform Resource Locator)란 네트워크 상에서 자원이 어디 있는지를 알려주기 위한 규약이다. 즉, 컴퓨터 네트워크와 검색 메커니즘에서의 위치를 지정하는, 웹 리소스에 대한 참조이다.
+    URL(Uniform Resource Locator)란 네트워크 상에서 자원이 어디 있는지를 알려주기 위한 규약이다(리소스를 식별하는 방법 중에, 리소스의 위치로 식별하는 방법이다). 즉, 컴퓨터 네트워크와 검색 메커니즘에서의 위치를 지정하는, 웹 리소스에 대한 참조이다. resource를 access할 수 있는 위치를 나타낸다. 
+
+    이는 URL의 범위가 어디까지 인가에 대한 혼란인 것 같다. RFC1737에 따르면 PATH, 쿼리스트링 모두 URL에 포함된다.
+
+     http://hostport[/path][?search]   
 
     (EX)
     [예제]
@@ -114,7 +118,11 @@
         4. https://tests.naver.com/132 -> URL은 https://tests.naver.com, URI는 https://tests.naver.com/132(132가 식별자로써 내가 원하는 정보까지 도달하기 위해서는 이 식별자가 필요하다)
 
         5. https://tests.naver.com/index.html -> URL+ URI이다.
-            * https://tests.naver.com/index은?
+            * https://tests.naver.com/index은? URI이다(URL은 아니다)
+
+        6.http://test.com/test.pdf?docid=111 라는 주소는 URI 이지만 URL은 아니다.
+            => docid=111이라는 쿼리스트링의 값에 따라 결과가 달라지게됨, 따라서 식별자 역할을 하고 있음
+            * http://test.com/test.pdf 까지만 URL임(주소의 위치)
                 
 </details>
 
@@ -131,7 +139,7 @@
 |PATCH|PATCH URI ... <BR><u>Content-Length: 11</u><br><u>Content-Type: text/xml</u><BR><u>Body</u>|PUT과 유사하게 요청된 자원을 수정할 때 사용한다. PUT의 경우 자원 전체를 갱신하지만, PATCH는 해당 자웡늬 일부만 교체한다.|
 |TRACE|TRACE URI|원격지 서버에 루프백 메시지를 호출하기 위해 테스트용으로 사용한다. 즉, TRACE 메소드는 웹 브라우저가 보내는 HTTP 통신을 반사하는 역할을 한다.|
 |OPTIONS|OPTIONS URI|웹 서버에서 지원되는 메소드의 종류를 확인할 경우 사용한다|
-|CONNECT|CONNECT URI|Client가 Proxy를 통해서 Server와 SSL통신을 하고자 할 때 사용된다.|
+|CONNECT|CONNECT URI|Client가 Proxy를 통해서 Server와 SSL통신을 하고자 할 때 사용된다 => Client와 Server가 SSL handshake를 맺도록 하기위해 Client가 Proxy에게 Server와 TCP Connection을 맺으라 지시할 때 쓰인다|
 
 <details>
 <summary> POST와 PUT의 차이 </summary>
@@ -212,7 +220,7 @@
 |Accept|클라이언트가 서버에게 이런 타입(MIME)의 데이터를 보냈으면 좋겠다고 명시할때 사용|
 |Authorization|클라이언트가 인증 토큰(JWT 등)을 서버로 보낼때 사용|
 |Origin| POST 요청을 보낼 때, 요청이 어느 주소에서 시작되었는지 나타낸다. 여기서 요청을 보낸 주소와 받는 주소가 다르면 CORS 문제가 발생|
-|Referer|바로 직전에 머물렀던 주소 -> 특정 페이지에서 링크를 클릭하여 요청을 하였을 경우에 나타나는 필드로써 링크를 제공한 페이지를 나타냄|
+|Referer|바로 직전에 머물렀던 주소 -> 특정 페이지에서 링크를 클릭하여 요청을 하였을 경우에 나타나는 필드로써 링크를 제공한 페이지를 나타냄 + 대부분의 웹서버에는 전 트래픽로그가 존재하며, 브라우저가 송신한 HTTP리퍼러를 기록하고 있다. 많은 웹 로그 분석 소프트는 이 정보 처리 가능|
 |Cookie|웹서버가 클라이언트에 쿠키를 저장해 놓았다면 해당 쿠키의 정보를 이름-값 쌍으로 웹서버에 전송|
 
 <details>
