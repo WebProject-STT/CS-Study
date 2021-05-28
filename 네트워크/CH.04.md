@@ -67,6 +67,7 @@
     * 특정 페이지에 접근할때 사용되는 URL의 <span style="color:red">**프로토콜, 도메인, 포트**</span>를 의미한다.
     * 그러므로 <span style="color:red">**프로토콜, 도메인, 포트**</span> 중 하나라도 다르면 다른 출처(<u>Cross-Origin</u>)라 한다.
     <br>
+    
     ![URL](./image/23.png)
     <br>
     <details>
