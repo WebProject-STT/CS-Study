@@ -23,6 +23,8 @@
     [📌 단점] : **성능 부하, 서버 부하**
 
 #### **[3] HTTP 1.1**
+- 함수 : OPTIONS, PUT, DELETE, TRACE 추가 => [GET, HEAD, POST, OPTIONS, PUT, DELETE, TRACE]
+
 *  HTTP 1.0 버전보다 클라이언트-서버 간 요청/응답 시간 줄이려고 노력함 =  <span style="color:red">**[persistent Connection / Pipelining]**</span><br>
     ![persistent](./image/29.png)<br> 
             
@@ -42,18 +44,16 @@
         * 참고 : Pipeling이 가능해졌긴한데, HTTP 1.1은 기본적으로 Connection 한 개당 하나의 요청을 처리한다!
         * 장점 : 응답 속도 높여 네트워크 지연 감소 -> 페이지 뷰의 속도 빠르게 가능
         * 단점 : 하지만 이 기법은 멀티플렉싱이 아니라 응답 처리를 미루는 방식으로, 각 응답의 처리는 순차적으로 처리되며 후 순위의 응답은 지연될 수 밖에 없다(HOL 문제)
-        <details>
-        <summary> 단점 사진 </summary>
-
+        
         ![Pipelining 단점](./image/32.png)<br>
-        </details>
-- 함수 : OPTIONS, PUT, DELETE, TRACE 추가 => [GET, HEAD, POST, OPTIONS, PUT, DELETE, TRACE]
-<br>
 
-    [📌 단점] 느리다: <br>
-        - HOL(Head of Line) Blocking - 파이프라인 문제점 (먼저 받은 요청이 끝나지 않으면 그 뒤에 있는 요청도 처리가 불가하다)<br>
-        - RTT 증가 - HTTP/1.1의 경우 일반적으로 Connection 하나에 요청 한 개를 처리한다. 이렇다보니 매번 요청 별로 Connection을 만들게 되고 TCP 상에서 동작하는 HTTP의 특성상 3-way Handshake가 반복적으로 일어나며, 불필요한 RTT증가와 네트워크 지연을 초래하여 성능을 지연시킨다. <BR>
-        - 헤더가 크다 - 만약 연속적인 데이터 일때 쪼개져서 보내지는데 이 경우 매 요청시 마다 중복된 헤더 값을 전송하게 되며 각 도메인에 설정된 쿠키 정보도 매 요청시 마다 헤더에 포함되어 전송된다.
+<details>
+<summary> HTTP 1.1의 단점 = 느리다 </summary>
+
+- HOL(Head of Line) Blocking - 파이프라인 문제점 (먼저 받은 요청이 끝나지 않으면 그 뒤에 있는 요청도 처리가 불가하다)
+- RTT 증가 - HTTP/1.1의 경우 일반적으로 Connection 하나에 요청 한 개를 처리한다. 이렇다보니 매번 요청 별로 Connection을 만들게 되고 TCP 상에서 동작하는 HTTP의 특성상 3-way Handshake가 반복적으로 일어나며, 불필요한 RTT증가와 네트워크 지연을 초래하여 성능을 지연시킨다.
+- 헤더가 크다 - 만약 연속적인 데이터 일때 쪼개져서 보내지는데 이 경우 매 요청시 마다 중복된 헤더 값을 전송하게 되며 각 도메인에 설정된 쿠키 정보도 매 요청시 마다 헤더에 포함되어 전송된다.
+</details>
 <BR>
 
 [HTTP 1.X에 대한 정리 그림]
