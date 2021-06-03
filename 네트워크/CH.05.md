@@ -1,5 +1,8 @@
 ## [CH5] HTTP 3
 
+[Notion](https://www.notion.so/5-HTTP-3-a33b664b665f4382ad56a8bca3516fa0
+)
+
 ```🙏  오늘 배울 내용 ```
 
     1. HTTP 버전 차이
