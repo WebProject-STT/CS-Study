@@ -28,7 +28,7 @@
 
 이웃한 두 요소의 대소 관계를 비교하여 교환을 반복
 
-![bubble sort](./img/06.bubble_sort.png)
+    ![bubble sort](./img/06.bubble_sort.png)
 
 위의 그림을 코드로 표현하면 다음과 같음
 
@@ -113,7 +113,7 @@ static void bubbleSort(int[] a, int n) {
    2. a[min]과 아직 정렬하지 않은 부분의 첫 번째 요소 교환
 - n-1회 반복
 
-![straight selection sort](./img/06.straight_selection_sort.png)
+    ![straight selection sort](./img/06.straight_selection_sort.png)
 
 ```java
 static void selectionSort(int[] a, int n) {
@@ -133,7 +133,7 @@ static void selectionSort(int[] a, int n) {
 - 선택한 요소를 그보다 더 앞쪽의 알맞은 위치에 `삽입하는` 작업을 반복하여 정렬하는 알고리즘
 - n-1회 반복하면 정렬을 마치게 됨
 
-![straight insertion sort](./img/06.straight_insertion_sort.png)
+    ![straight insertion sort](./img/06.straight_insertion_sort.png)
 
 ```java
 static void insertionSort(int[] a, int n) {
@@ -153,7 +153,7 @@ static void insertionSort(int[] a, int n) {
 💡 지금까지 나온 버블, 선택, 삽입 정렬과 같은 단순 정렬의 시간 복잡도는 모두 O(n^2) (효율이 좋지 않음)
 ```
 
-`06.03`
+`06.10`
 
 ## 5. 셸 정렬
 
@@ -166,7 +166,7 @@ static void insertionSort(int[] a, int n) {
 - 정렬할 배열의 요소를 그룹으로 나눠 각 그룹별로 단순 삽입 정렬을 수행한 후, 그 그룹을 합치면서 정렬을 반복하여 요소의 이동 횟수를 줄이는 방법
 - 퀵 정렬이 고안되기 전까지는 가장 빠른 알고리즘으로 알려져 있었음
 
-![shell sort](./img/06.shell_sort.png)
+    ![shell sort](./img/06.shell_sort.png)
 
 - 위와 같은 형태로 증분값을 선택하면 그룹을 나누었음에도 불구하고 요소들이 충분히 섞이지 않아 처음 상태에서 정렬을 진행하는 것과 큰 차이가 없게 됨 <br/> => `증분값이 배수가 되지 않도록 해야함`
 
@@ -202,7 +202,7 @@ static void shellSort(int[] a, int n) {
 - 각 그룹에 대해 피벗(pivot) 설정과 그룹 나눔을 반복하며 모든 그룹이 1명이 되면 정렬을 마침
 - 피벗은 마음대로 선택할 수 있으며, 오른쪽 그룹과 왼쪽 그룹 중 어디에 들어가든 상관 X
 
-![quick sort](./img/06.quick_sort.png)
+    ![quick sort](./img/06.quick_sort.png)
 
 ### 배열을 두 그룹으로 나누기
 - 피벗을 x, 왼쪽 끝 요소의 인덱스를 pl, 오른쪽 끝 요소의 인덱스를 pr이라고 지정하고 다음과 같은 작업 수행
@@ -210,11 +210,11 @@ static void shellSort(int[] a, int n) {
   1. a[pl] >= x가 성립하는 요소를 찾을 때까지 pl을 오른쪽으로 스캔
   2. a[pr] <= x가 성립하는 요소를 찾을 때까지 pr을 왼쪽으로 스캔
   ```
-![그룹으로 나눈 퀵 정렬](./img/06.quick_sort_2.png)
+    ![그룹으로 나눈 퀵 정렬](./img/06.quick_sort_2.png)
 
 - 위와 같이 pl과 pr이 교차하게 되면 피벗 이하인 그룹과 피벗 이상인 그룹으로 나누고 위의 과정을 다시 실행함
   
-![퀵 정렬 실행 과젇](./img/06.quick_sort_3.png)
+    ![퀵 정렬 실행 과젇](./img/06.quick_sort_3.png)
 
 ```java
 class QuickSort {
@@ -300,7 +300,7 @@ static void quickSort(int[] a, int left, int right) {
     3. 배열의 앞부분과 뒷부분 병합
     ```
 
-![merge sort](./img/06.merge_sort.png)
+    ![merge sort](./img/06.merge_sort.png)
 
 ```java
 class MergeSort {
@@ -350,6 +350,72 @@ class MergeSort {
 <br/>
 
 ## 8. 힙 정렬
+
+### 힙이란
+- 부모와 자식의 관계가 일정한 조건을 만족하는 완전이진트리
+- 일정한 조건 → 부모는 자식보다 `항상 크다` 또는 부모는 자식보다 `항상 작다`
+
+    ![heap](./img/06.heap.png)
+
+- 부모와 자식의 인덱스 관계
+  ```
+  1. 부모는 a[(i-1)/2]
+  2. 왼쪽 자식은 a[i*2 + 1]
+  3. 오른쪽 자식은 a[i*2 + 2]
+  ```
+
+### 힙정렬
+- `가장 큰 값이 루트에 위치`하는 특징을 이용하는 정렬 알고리즘
+- 가장 큰 값인 루트를 꺼내는 작업을 반복하며 정렬시키는 방식
+- 루트를 꺼내기 전에 힙 상태로 만들어야 함
+- 시간 복잡도 : `O(n log n)`
+
+    ![heap sort](./img/06.heap_sort.png)
+
+```java
+import java.util.Scanner;
+
+class HeapSort {
+    // 배열 요소 a[idx1]과 a[idx2]의 값을 바꿈
+    static void swap(int[] a, int idx1, int idx2) {
+        int t = a[idx1];
+        a[idx1] = a[idx2];
+        a[idx2] = t;
+    }
+
+    // a[left] ~ a[right]를 힙으로 만들기
+    static void dwonHeap(int[] a, int left, int right) {
+        int temp = a[left]; // 루트
+        int child; // 큰 값을 가진 노드
+        int parent; // 부모
+
+        for (parent = left; parent < (right + 1) / 2; parent = child) {
+            int cl = parent * 2 + 1; // 왼쪽 자식
+            int cr = parent * 2 + 2; // 오른쪽 자식
+            child = (cr <= right && a[cr] > a[cl]) ? cr : cl; // 큰 값을 가진 노드를 자식에 대입
+            if (temp >= a[child]) break;
+            a[parent] = a[child];
+        }
+
+        a[parent] = temp;
+    }
+
+    // 힙 정렬
+    static void heapSort(int[] a, int n) {
+        for (int i = (n-1) / 2; i >= 0; i--) // a[i] ~ a[n-1]을 힙으로 만들기
+            downHeap(a, i, n-1);
+
+        for (int i = n - 1; i > 0; i--) {
+            swap(a, 0, i); // 가장 큰 요소와 아직 정렬되지 않은 부분의 마지막 요소 교환
+            downHeap(a, 0, i - 1); // a[0] ~ a[i-1]을 힙으로 만들기
+        }
+    }
+
+    public static void main(String[] args) {
+        // 생략
+    }
+}
+```
 
 <br/>
 
