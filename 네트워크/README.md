@@ -9,7 +9,18 @@
 |05.24|[[CH3] HTTP 1](./CH.03.md)|
 |05.28|[[CH4] HTTP 2](./CH.04.md)|
 |06.03|[[CH5] HTTP 3](./CH.05.md)|
-|`예정`|[[CH6] HTTP 4 쿠키와 세션 / Cache-Control]
-|`예정`|[[CH7] DNS / 동기-비동기]
-|`예정`|[[CH8] REST와 RESTful]|
-|`예정`|[[CH9] Socket.io와 WebSocket / 로드 밸런싱]|
+|06.10|[[CH6] HTTP 4](./CH.06.md)|
+|`예정`|[[CH7] HTTP Cache]
+|`예정`|[[CH8] DNS / 동기-비동기]
+|`예정`|[[CH9] REST와 RESTful]|
+|`예정`|[[CH10] Socket.io와 WebSocket / 로드 밸런싱]|
+
+
+
+
+* 이모티콘<br>
+[🔔 참고/장점/단점]
+👉 [다음]
+🎇 [중요]
+📝 [참고-참고]
+📌 [무조건 외우기]
