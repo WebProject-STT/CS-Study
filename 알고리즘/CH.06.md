@@ -420,3 +420,29 @@ class HeapSort {
 <br/>
 
 ## 9. 도수 정렬
+- 요소의 대소 관계를 판단하지 않고 정렬할 수 있는 알고리즘
+- 도수 정렬 과점
+  ```
+  1. 도수분포표 만들기
+  2. 누적도수분포표 만들기
+  3. 목적 배열 만들기
+  4. 배열 복사하기
+  ```
+```java
+class Fsort {
+    // 도수 정렬 (0 이상 max 이하의 값 입력)
+    static void fSort (int[] a, int n, int max) {
+        int[] f = new int[max+1]; // 누적 도수
+        int[] b = new int[n]; // 작업용 목적 배열
+
+        for (int i = 0; i < n; i++) f[a[i]]++; // 1단계
+        for (int i = 1; i <= max; i++) f[i] += f[i-1]; // 2단계
+        for (int i = n -1; i >= 0; i--) b[--f[a[i]]] = a[i]; // 3단계
+        for (int i = 0; i < n; i++) a[i] = b[i]; // 4단계
+    }
+
+    public static void main(String[] args) {
+        //생략
+    }
+}
+```
