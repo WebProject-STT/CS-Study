@@ -1,5 +1,7 @@
 ## [CH6] HTTP4
 
+[notion](https://www.notion.so/6-HTTP-4-85d09f35c8f84d90bb7bb2b49040bd49)
+
 ```🙏  오늘 배울 내용 ```
 
     1. Cookie와 Session이 필요한 이유
@@ -56,7 +58,7 @@
     <summary> Cookie 옵션 </summary>
 
     <br>
-    
+
     * 쿠키명 = 쿠키값 : 기본적인 쿠키의 값. ( id = test )
     * **Expires** = 날짜 : **쿠키 만료 기한** 이 기한이 지나면 쿠키가 제거된다. 기본값은 클라이언트가 종료될 때까지 이다.
     * Max-age = 초 : Expires 와 비슷하지만 날짜 대신 초를 입력할 수 있다. 해당 초가 지나면 쿠키가 제거되고 Expires보다 우선 시 고려된다. 
