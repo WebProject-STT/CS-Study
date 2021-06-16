@@ -220,24 +220,24 @@
     - signal() 연산은 프로세스 리스트에서 한 프로세스를 꺼내서 그 프로세스를 깨워줌</code></pre>
 7. 세마포의 구조에 따른 wait() 연산과 signal() 연산 코드
     - wait() 연산
-    <pre><code>void wait(semaphore *S) {
-        S->value--;
-        if (S->value < 0) {
-        이 프로세스를 S->list에 넣는다;
-        block();
-        }
-    }</code></pre>
-    => 이전의 wait() 연산에서 세마포 값의 감소와 검사의 순서를 바꿈!!
-    => 세마포 값이 음수 값을 가질 수 있게 되며 그 때 세마포의 값의 `절대 값`은 세마포를 대기하고 있는 프로세스들의 수가 됨
+        <pre><code>void wait(semaphore *S) {
+            S->value--;
+            if (S->value < 0) {
+            이 프로세스를 S->list에 넣는다;
+            block();
+            }
+        }</code></pre>
+        => 이전의 wait() 연산에서 세마포 값의 감소와 검사의 순서를 바꿈!!       
+        => 세마포 값이 음수 값을 가질 수 있게 되며 그 때 세마포의 값의 `절대 값`은 세마포를 대기하고 있는 프로세스들의 수가 됨
     - signal() 연산
-    <pre><code>void signal(semaphore *S) {
-        S->value++;
-        if (S->value <= 0) {
-            S->list로부터 하나의 프로세스 P를 꺼낸다;
-            wakeup(P);
-        }
-    }</code></pre>
-    - 같은 세마포에 대해 두 프로세스가 동시에 wait()과 signal() 연산들을 실행할 수 없다는 것을 명심
+        <pre><code>void signal(semaphore *S) {
+            S->value++;
+            if (S->value <= 0) {
+                S->list로부터 하나의 프로세스 P를 꺼낸다;
+                wakeup(P);
+            }
+        }</code></pre>
+    - 같은 세마포에 대해 두 프로세스가 동시에 wait()과 signal() 연산들을 실행할 수 없다는 것을 명심     
     => 동시에 실행되면 당연히 임계구역 문제가 발생하게 되겠죠??
 8. block() 연산은 자기를 호출한 프로세스를 `중지`시키는 역할
 9. wakeup(P) 연산은 봉쇄된 프로세스 P의 실행을 재개시킴
