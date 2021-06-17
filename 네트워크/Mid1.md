@@ -431,7 +431,6 @@ HTTPS는 HTTP의 문제점인 보안을 방지한 프로토콜로, HTTP에 **SSL
 <summary> 📌 Answer </summary>
 
 쿠키(Cookie) 와 세션(Session)
-</details>
 
 <details>
 <summary> ➕ 쿠키와 세션의 차이는 무엇인가요? </summary>
@@ -455,5 +454,6 @@ HTTPS는 HTTP의 문제점인 보안을 방지한 프로토콜로, HTTP에 **SSL
 
 * Request : Cookie
 * Response : Set-Cookie
+</details>
 </details>
 <BR>
