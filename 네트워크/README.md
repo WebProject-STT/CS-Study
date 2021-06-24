@@ -11,7 +11,7 @@
 |06.03|[[CH5] HTTP 3](./CH.05.md)|
 |06.10|[[CH6] HTTP 4](./CH.06.md)|
 |06.17|[[중간] 문제](./Mid1.md)|
-|06.17|[[CH7] HTTP 5](./CH.07.md)|
+|06.24|[[CH7] HTTP 5](./CH.07.md)|
 |`예정`|[[CH8] DNS / 동기-비동기]
 |`예정`|[[CH9] REST와 RESTful]|
 |`예정`|[[CH10] Socket.io와 WebSocket / 로드 밸런싱]|
