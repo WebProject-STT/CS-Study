@@ -3,7 +3,7 @@
 ```🙏  오늘 배울 내용 ```
 
     1. HTTP Cache란?
-    2. Cache관련 Header = Cache Control, Expired
+    2. Cache관련 Header = Cache Control, Expired, ETag, LAST-MODIFIED
 ----------
 
 ## **1. HTTP의 Cache란?**
